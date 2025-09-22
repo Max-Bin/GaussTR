@@ -1,3 +1,4 @@
+import os
 import os.path as osp
 import numpy as np
 import torch
@@ -57,6 +58,7 @@ if __name__ == '__main__':
     model = MODELS.build(
         dict(type='Metric3D', model_name='metric3d_vit_large')).cuda()
     save_dir = 'data/nuscenes_metric3d'
+    os.makedirs(save_dir, exist_ok=True)
 
     dataloader_cfg = cfg.test_dataloader
     dataloader_cfg.pop('sampler')
